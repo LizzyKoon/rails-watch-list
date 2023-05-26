@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.1.2"
 
 gem "dotenv-rails"
+gem "cloudinary"
 
 gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
