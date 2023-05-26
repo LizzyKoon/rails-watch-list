@@ -1,11 +1,11 @@
 class ListsController < ApplicationController
+  before_action :find_list, only: [:show]
 
   def index
     @lists = List.all
   end
 
   def show
-    @lists = List.find(params[:id])
   end
 
   def new
@@ -14,7 +14,6 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(params_list)
-    @list.save
     if @list.save
       redirect_to list_path(@list)
     else
@@ -22,10 +21,14 @@ class ListsController < ApplicationController
     end
   end
 
-private
+  private
 
-def params_list
-  params.require(:list).permit(:name)
-end
+  def params_list
+    params.require(:list).permit(:name)
+  end
+
+  def find_list
+    @lists = List.find(params[:id])
+  end
 
 end
