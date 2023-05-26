@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_action :set_bookmark, on
+  before_action :set_bookmark
 
   def index
     @bookmarks = Bookmark.all

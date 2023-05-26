@@ -1,19 +1,19 @@
 class MoviesController < ApplicationController
 
   def index
-    @lists = movie.all
+    @lists = Movie.all
   end
 
   def show
-    @lists = movie.find(params[:id])
+    @lists = Movie.find(params[:id])
   end
 
   def new
-    @movie = movie.new
+    @movie = Movie.new
   end
 
   def create
-    @movie = movie.new(params_list)
+    @movie = Movie.new(params_list)
     @movie.save
     if @movie.save
       redirect_to list_path(@movie)
